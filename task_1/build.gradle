@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+// Указываем путь к Java 17
+if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+    project.ext.javaHome = 'C:\\Program Files\\Java\\jdk-17'
+} else {
+    project.ext.javaHome = System.getenv('JAVA_HOME') ?: '/usr/lib/jvm/java-17-openjdk'
+}
+
+group = 'com.ivk'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 
+}
+
+application {
+    mainClass = 'com.ivk.squares.ConsoleGame'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.ivk.squares.ConsoleGame'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
