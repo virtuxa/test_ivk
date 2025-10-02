@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра "Квадраты"</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Игра "Квадраты"</h1>
+            <p>Постройте квадрат 2x2 из своих фишек, чтобы выиграть!</p>
+        </header>
+
+        <div class="game-controls">
+            <div class="control-group">
+                <label for="boardSize">Размер доски:</label>
+                <select id="boardSize">
+                    <option value="3">3x3</option>
+                    <option value="4">4x4</option>
+                    <option value="5" selected>5x5</option>
+                    <option value="6">6x6</option>
+                    <option value="7">7x7</option>
+                    <option value="8">8x8</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="playerColor">Ваш цвет:</label>
+                <select id="playerColor">
+                    <option value="W">⚪ Белые</option>
+                    <option value="B">⚫ Черные</option>
+                </select>
+            </div>
+            
+            <button id="newGameBtn" class="btn btn-primary">Новая игра</button>
+        </div>
+
+        <div class="game-info">
+            <div class="current-player">
+                <span id="currentPlayerText">Выберите настройки и начните игру</span>
+            </div>
+            <div class="game-status">
+                <span id="gameStatusText"></span>
+            </div>
+        </div>
+
+        <div class="game-board-container">
+            <div id="gameBoard" class="game-board"></div>
+        </div>
+
+        <div class="game-log">
+            <h3>Ход игры:</h3>
+            <div id="gameLog" class="log-content"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
